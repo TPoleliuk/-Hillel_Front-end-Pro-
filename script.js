@@ -3,13 +3,13 @@ const task1Part2 = document.getElementById('task1Part2');
 const task2 = document.getElementById('task2');
 
 task1Part1.addEventListener('click', () => {
-    const userName = prompt("Please enter your name") || 'anonym';
-    alert(userName);
+    const userName = prompt("Please enter your name");
+    alert(userName || 'anonym');
 });
 
 task1Part2.addEventListener('click', () => {
-    const userName = prompt("Please enter your name") === "admin";
-    alert (userName && "Hello admin" || 'Welcome');
+    const isAdmin = prompt("Please enter your name") === "admin";
+    alert (isAdmin && "Hello admin" || 'Welcome');
 });
 
 task2.addEventListener('click', () => {
