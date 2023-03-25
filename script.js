@@ -81,7 +81,7 @@ const denominator = 3;
 for (let i = 100; i <= maxNumber8; i++) {
     if (i % denominator !== 0) continue;
     
-    if (i+denominator < maxNumber8) {
+    if (i+denominator <= maxNumber8) {
         document.write(i + ', ')
     } else {
         document.write(i)
