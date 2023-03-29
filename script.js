@@ -44,9 +44,9 @@ if (lengthOfArr !== null) {
     console.log(A);
 
     for (let i = 0; i < A.length / 2; i++) {
-		   const rightItem = A[A.length-i-1];
-           A[A.length-i-1] = A[i];
-		   A[i] = rightItem;
+		const rightItem = A[A.length-i-1];
+        A[A.length-i-1] = A[i];
+		A[i] = rightItem;
 	};
  
     console.log(A);
