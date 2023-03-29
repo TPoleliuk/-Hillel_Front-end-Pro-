@@ -35,7 +35,7 @@ if (lengthOfArr !== null) {
         maxAllow = minAllow - maxAllow;
         minAllow = minAllow - maxAllow;
     }
-    console.log('minAllow: ' + minAllow + ', minAllow: ' + maxAllow);
+    console.log('minAllow: ' + minAllow + ', maxAllow: ' + maxAllow);
 
     for (let i = 0; i < A.length; i++) {
         A[i] = Math.round(Math.random() * (maxAllow - minAllow + 1) + minAllow - 0.5); 
