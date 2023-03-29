@@ -47,7 +47,7 @@ if (lengthOfArr !== null) {
         const rightItem = A[A.length-i-1];
         A[A.length-i-1] = A[i];
         A[i] = rightItem;
-	};
+    };
  
     console.log(A);
 }
