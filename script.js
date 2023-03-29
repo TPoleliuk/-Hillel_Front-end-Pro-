@@ -65,11 +65,11 @@ if (lengthOfArr !== null) {
             /* "Елементи масиву між min - max записати масив B" - зрозуміла як "включно з ними".
             Якщо треба без, то for (let i = indexMax + 1; i < indexMin; i++)*/
             B[B.length] = A[i];
-        }
+        };
     } else {
         for (let i = indexMin; i <= indexMax; i++) {
             B[B.length] = A[i];
-        }
+        };
     }
 
     console.log(B);
