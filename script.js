@@ -47,7 +47,6 @@ if (lengthOfArr !== null) {
     let indexMin = 0;
     let max = A[0];
     let indexMax = 0;
-    let B = [];
     for (let i = 1; i < A.length; i++) {
         if (A[i] < min) {
             min = A[i];
@@ -60,18 +59,22 @@ if (lengthOfArr !== null) {
     }
     console.log('min (index): ' + min + ' (' + indexMin + '), max (index): ' + max + ' (' + indexMax + ')');
 
+    const B = A.slice(Math.min(indexMin, indexMax), Math.max(indexMin, indexMax) + 1);
+    /*"Елементи масиву між min - max записати масив B" - зрозуміла як "включно з ними".
+    Якщо треба без, то B = A.slice(Math.min(indexMin, indexMax)+1, Math.max(indexMin, indexMax)) */
+
+
+    /* АБО додатковий варіант (без методу):
     if (indexMin > indexMax) {
         for (let i = indexMax; i <= indexMin; i++) {
-            /* "Елементи масиву між min - max записати масив B" - зрозуміла як "включно з ними".
-            Якщо треба без, то for (let i = indexMax + 1; i < indexMin; i++)*/
             B[B.length] = A[i];
         };
     } else {
         for (let i = indexMin; i <= indexMax; i++) {
             B[B.length] = A[i];
         };
-    }
-
+    };
+    */
     console.log(B);
 }
 
