@@ -54,7 +54,7 @@ if (lengthOfArr !== null) {
             indexMin = i;
         };
         if (A[i] > max) {
-            max = A[i]
+            max = A[i];
             indexMax = i;
         };
     }
