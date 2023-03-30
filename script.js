@@ -9,13 +9,13 @@ for (let i = 0; i < Arr.length; i++) {
     Arr[i] = Math.round(Math.random() * (max - min + 1) + min - 0.5); 
 };
 
-console.log(Arr)
+console.log(Arr);
 
 // заміна елементів;
 for (let i = 1; i < Arr.length; i += 2) {
-    const temp = Arr[i]
+    const temp = Arr[i];
     Arr[i] = Arr[i-1];
     Arr[i-1] = temp;
-}
+};
 
-console.log(Arr)
+console.log(Arr);
