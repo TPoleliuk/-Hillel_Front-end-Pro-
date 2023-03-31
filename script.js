@@ -14,8 +14,8 @@ for (let i = 0; i < Arr.length; i++) {
 
     for (let j = 0; j < column; j++) {
         if (i === 0) {
-            Result[j] = 0
-        }
+            Result[j] = 0;
+        };
         Arr[i][j] = Math.round(Math.random() * (max - min + 1) + min - 0.5); 
         
         Result[j] += Arr[i][j];
@@ -37,13 +37,13 @@ for (let i = 1; i < Result.length; i++) {
     if (Result[i] < minSum) {
         minSum = Result[i];
         minSumIndex = i;
-    }
-}
+    };
+};
 
 console.log('Кількість рядків:' + row);
 console.log('Кількість стовпців:' + column);
 
 console.log(Arr);
 console.log(Result);
-console.log('В стовпці з індексом ' + minSumIndex + ' найменша сума елементів: ' + minSum);
-console.log('В стовпці з індексом ' + maxSumIndex + ' найбільша сума елементів: ' + maxSum);
+console.log('В стовпці з індексом ' + '[' + minSumIndex + ']' + ' найменша сума елементів: ' + minSum);
+console.log('В стовпці з індексом ' + '[' + maxSumIndex + ']' + ' найбільша сума елементів: ' + maxSum);
