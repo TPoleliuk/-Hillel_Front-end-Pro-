@@ -10,7 +10,7 @@ const Arr = new Array (row);
 const Result = [];
 
 for (let i = 0; i < Arr.length; i++) {
-    Arr[i] = new Array (3);
+    Arr[i] = new Array (column);
 
     for (let j = 0; j < column; j++) {
         if (i === 0) {
