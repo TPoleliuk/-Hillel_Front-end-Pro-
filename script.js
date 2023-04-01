@@ -51,7 +51,7 @@ for (let i = 0; i < column; i++) {
         minSum = sum;
         minSumIndex = i;
     };
-}
+};
 
 console.log('В стовпці з індексом ' + '[' + minSumIndex + ']' + ' найменша сума елементів: ' + minSum);
 console.log('В стовпці з індексом ' + '[' + maxSumIndex + ']' + ' найбільша сума елементів: ' + maxSum);
