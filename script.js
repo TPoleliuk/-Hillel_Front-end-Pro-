@@ -30,16 +30,16 @@ for (let i = 0; i < column; i++) {
 
     for (j = 0; j < Arr.length; j++) {
         sum += Arr[j][i];
-    }
+    };
 
-    console.log('Cума елементів стовпця з індексом ' + '[' + i + "]: " + sum)
+    console.log('Cума елементів стовпця з індексом ' + '[' + i + "]: " + sum);
 
     if (i === 0) {
         maxSum =  sum;
         maxSumIndex = i;
         minSum = sum;
         minSumIndex = i;
-        continue
+        continue;
     };
 
     if (sum > maxSum) {
