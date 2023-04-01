@@ -5,45 +5,53 @@ const min = +prompt('Введіть мінімальне число діапаз
 const max = +prompt('Введіть максимальне число діапазона');
 
 
-// cтворення двовимірного масиву та масиву з сумами значень по стовпцям;
+// cтворення двовимірного масиву;
 const Arr = new Array (row);
-const Result = [];
+let maxSum;
+let maxSumIndex;
+let minSum;
+let minSumIndex;
 
 for (let i = 0; i < Arr.length; i++) {
     Arr[i] = new Array (column);
 
     for (let j = 0; j < column; j++) {
-        if (i === 0) {
-            Result[j] = 0;
-        };
-        Arr[i][j] = Math.round(Math.random() * (max - min + 1) + min - 0.5); 
-        
-        Result[j] += Arr[i][j];
-    };
-};
-
-// знаходження стовпця з мінімальною та максимальною сумою значень;
-let maxSum = Result[0];
-let maxSumIndex = 0;
-let minSum = Result[0];
-let minSumIndex = 0;
-
-for (let i = 1; i < Result.length; i++) {
-    if (Result[i] > maxSum) {
-        maxSum = Result[i];
-        maxSumIndex = i;
-    };
-
-    if (Result[i] < minSum) {
-        minSum = Result[i];
-        minSumIndex = i;
+        Arr[i][j] = Math.round(Math.random() * (max - min + 1) + min - 0.5);
     };
 };
 
 console.log('Кількість рядків:' + row);
 console.log('Кількість стовпців:' + column);
-
 console.log(Arr);
-console.log(Result);
+
+// пошук стовпця з найбільшою та найменшою сумою елементів;
+for (let i = 0; i < column; i++) {
+    let sum = 0;
+
+    for (j = 0; j < Arr.length; j++) {
+        sum += Arr[j][i];
+    }
+
+    console.log('Cума елементів стовпця з індексом ' + '[' + i + "]: " + sum)
+
+    if (i === 0) {
+        maxSum =  sum;
+        maxSumIndex = i;
+        minSum = sum;
+        minSumIndex = i;
+        continue
+    };
+
+    if (sum > maxSum) {
+        maxSum = sum;
+        maxSumIndex = i;
+    };
+
+    if (sum < minSum) {
+        minSum = sum;
+        minSumIndex = i;
+    };
+}
+
 console.log('В стовпці з індексом ' + '[' + minSumIndex + ']' + ' найменша сума елементів: ' + minSum);
 console.log('В стовпці з індексом ' + '[' + maxSumIndex + ']' + ' найбільша сума елементів: ' + maxSum);
