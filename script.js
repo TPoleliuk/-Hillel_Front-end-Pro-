@@ -106,13 +106,13 @@ function removeElements(string, symbols) {
 
 console.log('Модифікований рядок: ' + removeElements(currentString, symbolsRemove));
 
-/* АБО якщо не перетворювати вихідний рядок в масив:
+/*АБО якщо без перетворення рядка в масив:
 
 function removeElements(string, symbols) {
     const arrayOfSymbols = symbols.split(',');
     let newString = '';
     
-    for (let i = string.length - 1; i >= 0; i--) {
+    for (let i = 0; i < string.length; i++) {
         let isMatch = false;
 
         for (let j = 0; j < arrayOfSymbols.length; j++) {
@@ -123,7 +123,7 @@ function removeElements(string, symbols) {
         };
 
         if (!isMatch) {
-            newString = string[i] + newString;
+            newString += string[i];
         };
     };
 
