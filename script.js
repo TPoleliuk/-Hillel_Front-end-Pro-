@@ -30,7 +30,7 @@ console.log(sumTo(6));
 // Задача - 3. Написати функцію factorial(n) - яка за допомогою рекурсії рахуватиме значення факторіалу числа n!
 
 function factorial(n) {
-    if (n === 1) {             //АБО if (!n) {return n}, але це дає ще один рекурсивний крок. 
+    if (n === 1) {             //АБО if (!n) {return 1}, але це дає ще один рекурсивний крок. 
         return 1;
     };
     const product = n * factorial(n - 1);
