@@ -18,7 +18,7 @@ row(7);
 
 function sumTo(n) {
     if (n === 1) {              //АБО if (!n) {return n}, але це дає ще один рекурсивний крок. 
-        return 1;
+        return n;
     };
     const sum = n + sumTo(n - 1);
     return sum;
@@ -31,13 +31,13 @@ console.log(sumTo(6));
 
 function factorial(n) {
     if (n === 1) {             //АБО if (!n) {return 1}, але це дає ще один рекурсивний крок. 
-        return 1;
+        return n;
     };
     const product = n * factorial(n - 1);
     return product;
 };
 
 /* За потреби, на початку ф-ї можна зробити котроль: if(n < 1) {return;},
-щоб не запускати рекурсію, якщо первинно в якості фактичного аркументу введено таке число.*/
+щоб не запускати рекурсію, якщо первинно в якості фактичного аргументу введено таке число.*/
 
 console.log(factorial(5));
