@@ -20,9 +20,19 @@ function sumToArray(arr) {
     if (arr.length === 1) {     //АБО if (!arr.length) {return arr.length}, але це дає ще один рекурсивний крок (зайвий).
         return arr[0];
     };
+    const sum = arr.shift() + sumToArray(arr);
+    return sum;
+};
+
+/* АБО викликати ф-ю з новим масивом, скопійованим з 1-го індекса попередньої версії масиву:
+function sumToArray(arr) {
+    if (arr.length === 1) {     //АБО if (!arr.length) {return arr.length}, але це дає ще один рекурсивний крок (зайвий).
+        return arr[0];
+    };
     const sum = arr[0] + sumToArray(arr.slice(1));
     return sum;
 };
+*/
 
 console.log(sumToArray([1, 2, 3, 4, 5, 6]));
 
