@@ -89,5 +89,4 @@ function sumOfBalances (array, filterFunction) {
 }
 
 const sumOfUsersBalance = sumOfBalances(users, filterUsersByBalance);
-
 console.log(`Sum of balances: $${sumOfUsersBalance}`);
