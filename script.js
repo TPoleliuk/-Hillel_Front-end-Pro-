@@ -55,25 +55,39 @@ const users = [
     }
     ];
 
+function convertBalanceToNumber (object) {
+    return parseFloat(object.balance.replace(/[$,]/g, ''));
+    // регулярний вираз для декількох символів = > /[...]/, g - шукає всі збіги
+};
 
+function phonesOfUsers (array, filterFunction) {
+    const isFunction = typeof filterFunction === 'function';
+    const arrayOfUsers = isFunction ? filterFunction(array) : array;
     
-const filteredUsers = users.filter( (obj) => +obj['balance'].replace(/[$,]/g, '') > 2000 );
-// регулярний вираз для декількох символів = > /[...]/, g - шукає всі збіги
+    return arrayOfUsers.map( (obj) => obj.phone );
+};
 
-const phonesOfFilteredUsers = filteredUsers.map( (obj) => obj['phone'] );
+function filterUsersByBalance (array) {
+    return array.filter( (object) => convertBalanceToNumber(object) > 2000 );
+};
 
-console.log(phonesOfFilteredUsers);
+const usersPhoneDateBase = phonesOfUsers(users, filterUsersByBalance);
+console.log(usersPhoneDateBase);
 
-/* АБО, якби не треба було використовувати відфільтрований масив декілька разів:
+//------------------------------------------------------------------------------
 
-const phonesOfFilteredUsers = users
-    .filter( (obj) => +obj['balance'].replace(/[$,]/g, '') > 2000 )
-    .map( (obj) => obj['phone'] ); 
-*/
+function convertBalanceToCent (array, filterFunction) {
+    const isFunction = typeof filterFunction === 'function';
+    const arrayOfUsers = isFunction ? filterFunction(array) : array;
 
-const sumOfBalances = filteredUsers
-    .map( (obj) => +obj['balance'].replace(/[$,]/g, '') * 100 )
-    .reduce ( (total, current) => (total + current) )
-    / 100;
+    return arrayOfUsers.map( (object) => convertBalanceToNumber(object) * 100);
+};
 
-console.log(`Sum of balances: $${sumOfBalances}`);
+function sumOfBalances (array, filterFunction) {
+    const sum = convertBalanceToCent(array, filterFunction).reduce( (total, current) => (total + current));
+    return sum / 100;
+}
+
+const sumOfUsersBalance = sumOfBalances(users, filterUsersByBalance);
+
+console.log(`Sum of balances: $${sumOfUsersBalance}`);
