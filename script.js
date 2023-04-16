@@ -11,7 +11,9 @@ const obj = {
 
 console.log(obj);
 
-function convert(object) {
+// Варіант 1
+
+function convert_V1(object) {
     newObj = {};
 
     (function demiConvert (object) {
@@ -21,12 +23,28 @@ function convert(object) {
             } else {
                 newObj[key] = object[key];
             };
-        }
+        };
     })(object);
     
     return newObj; 
 };
 
-console.log(convert(obj));
+console.log(convert_V1(obj));
 
+// Варіант 2
 
+function convert_V2(object) {
+  newObj = {};
+  
+  for (key in object) {
+    if (typeof object[key] === 'object') {
+      newObj = Object.assign(newObj, convert_V2(object[key]));
+    } else {
+      newObj[key] = object[key];
+    };
+  };
+  
+  return newObj; 
+};
+
+console.log(convert_V2(obj));
