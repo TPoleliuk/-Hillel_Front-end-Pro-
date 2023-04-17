@@ -13,20 +13,22 @@ console.log(obj);
 
 // Варіант 1
 
-function convert_V1(object) {
-    newObj = {};
+function copy(object, newObj) {
+  for (key in object) {
+    if (typeof object[key] === 'object') {
+      copy(object[key], newObj);
+    } else {
+      newObj[key] = object[key];
+    };
+  };
+};
 
-    (function demiConvert (object) {
-        for (key in object) {
-            if (typeof object[key] === 'object') {
-                demiConvert(object[key]);
-            } else {
-                newObj[key] = object[key];
-            };
-        };
-    })(object);
-    
-    return newObj; 
+function convert_V1(object) {
+  const newObj = {};
+
+  copy(object, newObj);
+
+  return newObj;
 };
 
 console.log(convert_V1(obj));
@@ -34,11 +36,11 @@ console.log(convert_V1(obj));
 // Варіант 2
 
 function convert_V2(object) {
-  newObj = {};
+  const newObj = {};
   
   for (key in object) {
     if (typeof object[key] === 'object') {
-      newObj = Object.assign(newObj, convert_V2(object[key]));
+      Object.assign(newObj, convert_V2(object[key]));
     } else {
       newObj[key] = object[key];
     };
