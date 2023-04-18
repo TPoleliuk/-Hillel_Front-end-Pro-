@@ -54,39 +54,50 @@ const users = [
         "address": "314 Dunne Place, Bawcomville, Guam, 9053"
     }
     ];
+    
+function toCent(sumInFloat) {
+    const multiplier = 100;
+    return sumInFloat * multiplier;
+};
 
-function convertBalanceToNumber (object) {
-    return parseFloat(object.balance.replace(/[$,]/g, ''));
+function toFloat(sumInCent) {
+    const divisor = 100;
+    return sumInCent / divisor;
+};
+
+function convertBalanceToFloat(userBalance) {
+    return parseFloat(userBalance.replace(/[$,]/g, ''));
     // регулярний вираз для декількох символів = > /[...]/, g - шукає всі збіги
 };
 
-function phonesOfUsers (array, filterFunction) {
-    const isFunction = typeof filterFunction === 'function';
-    const arrayOfUsers = isFunction ? filterFunction(array) : array;
-    
-    return arrayOfUsers.map( (obj) => obj.phone );
+function getUsersByBalance(users, targetBalance) {
+    return users.filter((user) => {
+        const balanceInCent = toCent(convertBalanceToFloat(user.balance));
+        return balanceInCent > toCent(targetBalance);
+    });
 };
 
-function filterUsersByBalance (array) {
-    return array.filter( (object) => convertBalanceToNumber(object) > 2000 );
+function getUsersPhoneList(users) {
+    return users.map( (user) => user.phone );
 };
 
-const usersPhoneDateBase = phonesOfUsers(users, filterUsersByBalance);
-console.log(usersPhoneDateBase);
+let usersList = getUsersByBalance(users, 2000);
+let usersPhoneList = getUsersPhoneList(usersList);
+console.log(usersPhoneList);
 
 //------------------------------------------------------------------------------
 
-function convertBalanceToCent (array, filterFunction) {
-    const isFunction = typeof filterFunction === 'function';
-    const arrayOfUsers = isFunction ? filterFunction(array) : array;
-
-    return arrayOfUsers.map( (object) => convertBalanceToNumber(object) * 100);
+function getBalancesList(users) {
+    return users.map( (user) => user.balance);
 };
 
-function sumOfBalances (array, filterFunction) {
-    const sum = convertBalanceToCent(array, filterFunction).reduce( (total, current) => (total + current));
-    return sum / 100;
-}
+function getTotalBalancesSum(users) {
+    const listOfBalances = getBalancesList(users);
+    const listOfBalancesInCent = listOfBalances.map( (userBalance) => toCent(convertBalanceToFloat(userBalance)) );
+    const totalSumInCent = listOfBalancesInCent.reduce( (total, current) => (total + current) );
 
-const sumOfUsersBalance = sumOfBalances(users, filterUsersByBalance);
-console.log(`Sum of balances: $${sumOfUsersBalance}`);
+    return toFloat(totalSumInCent);
+};
+
+let totalBalancesSum = getTotalBalancesSum(usersList);
+console.log(`Sum of balances: $${totalBalancesSum}`);
