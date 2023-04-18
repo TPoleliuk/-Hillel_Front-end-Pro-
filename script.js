@@ -93,8 +93,7 @@ function getBalancesList(users) {
 
 function getTotalBalancesSum(users) {
     const listOfBalances = getBalancesList(users);
-    const listOfBalancesInCent = listOfBalances.map( (userBalance) => toCent(convertBalanceToFloat(userBalance)) );
-    const totalSumInCent = listOfBalancesInCent.reduce( (total, current) => (total + current) );
+    const totalSumInCent = listOfBalances.reduce( (total, current) => total + toCent(convertBalanceToFloat(current)), 0);
 
     return toFloat(totalSumInCent);
 };
