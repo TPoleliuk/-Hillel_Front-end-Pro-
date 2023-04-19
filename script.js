@@ -23,7 +23,7 @@ renderObject.call(obj);
 renderObject.apply(obj);
 
 //Задача 2
-data = {
+const data = {
     addRecord: addRecord,
     p: 600,
     str: 'hello',
