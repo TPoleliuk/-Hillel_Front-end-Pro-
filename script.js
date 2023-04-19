@@ -8,14 +8,14 @@ const obj = {
 };
 
 function renderObject() {
+    const objItems = [];
     const breakRow = '<br>';
-    const colon = ':';
-    const space = ' ';
+    const colon = ' : ';
     for(key in this) {
         if (key === 'renderObject') continue;
-        document.write(key + colon + space + this[key] + breakRow);
+        objItems.push(key + colon + this[key]);
     };
-    document.write(breakRow);
+    document.write(objItems.join(breakRow) + breakRow + breakRow);
 };
 
 obj.renderObject();
