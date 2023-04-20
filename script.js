@@ -42,5 +42,4 @@ console.log(data.z) // 230
 console.log(data.p) // 600
 console.log(data.str) // 'hello'
 
-console.log('---------------------------')
 
