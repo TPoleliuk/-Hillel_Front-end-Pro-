@@ -44,16 +44,3 @@ console.log(data.str) // 'hello'
 
 console.log('---------------------------')
 
-// АБО якщо потрібно записати аргументи в масив безпосередньо при виклику функції:
-
-function createArr() {
-    return [].slice.call(arguments);   // return [].slice.apply(arguments);
-};
-
-addRecord.apply(data, createArr({x: 210}, {y: 220}, {z: 230, x: 250}));
-
-console.log(data.x) // 250
-console.log(data.y) // 220
-console.log(data.z) // 230
-console.log(data.p) // 600
-console.log(data.str) // 'hello'
