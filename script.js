@@ -76,13 +76,13 @@ shape.perimeter //read - no changes
 
 shape.dependencies.bottom = 200; //changes not through perimeter value
 
-shape.perimeter //read - output to doc (because not the same)
+shape.perimeter //read - output to doc (because not the same after hape.dependencies.bottom = 200)
 shape.perimeter //read - no changes
 shape.perimeter //read - no changes
 
 shape.dependencies.bottom = 300; //changes not through perimeter value
 
-shape.perimeter; //read - output to doc (because not the same)
+shape.perimeter; //read - output to doc (because not the same after shape.dependencies.bottom = 300)
 shape.perimeter; //read - no changes
 
 shape.perimeter = 900; //set - output to doc
