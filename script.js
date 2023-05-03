@@ -78,20 +78,22 @@ function createProductItem(product) {
     `;
 };
 
-// Hometask --- refactoring  ---- decomposition
-async function getAllProducts() {
-    const response = await fetchAllProducts();
-    const prouducts = response.products;
-
-    const productsTamplate = `
+function createProductsTamplate(products) {
+    return `
         <article class="products">
-            ${prouducts.map((product) => 
+            ${products.map((product) => 
                 createProductItem(product)
             ).join("")}
         </article>
     `;
+};
 
-    document.getElementById("app").innerHTML = productsTamplate;
+// Hometask --- refactoring  ---- decomposition
+async function getAllProducts() {
+    const response = await fetchAllProducts();
+    const products = response.products;
+
+    document.getElementById("app").innerHTML = createProductsTamplate(products);
 };
 
 getAllProducts();
