@@ -23,9 +23,10 @@ const shape = {
   }),
   get perimeter() {
 
-    if (history.records.length && (
-      JSON.stringify(this.dependencies) ===
-      JSON.stringify(history.records[history.records.length - 1].dependencies))) {
+    if (history.records.length && (Object.keys(this.dependencies).every(key =>
+        this.dependencies[key] === history.records[history.records.length - 1].dependencies[key]
+        ))
+      ) {
         return history.records[history.records.length - 1].perimeter;
       };
 
