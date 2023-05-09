@@ -1,0 +1,138 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-clip: padding-box;
+}
+
+html {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.container {
+  width: 100%;
+  max-width: calc(1290px + 2rem);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  position: relative;
+}
+
+.products {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 50px;
+  margin: 0 0 30px;
+}
+
+.product-item {
+  max-width: 350px;
+  height: 480px;
+  background: #fff;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+.product-item .image-wrapper {
+  overflow: hidden;
+  aspect-ratio: 1.35 / 1;
+  display: flex;
+  justify-content: center;
+}
+
+.product-item .content-wrapper {
+  padding: 15px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-item .content-wrapper .title-rating {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product-item .content-wrapper .title-rating h4 {
+  max-width: 70%;
+}
+
+.product-item .content-wrapper .rating {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  gap: 5px;
+}
+
+.product-item .content-wrapper .rating img {
+  max-width: 20px;
+}
+
+.product-item .content-wrapper .price {
+  margin: 10px 0;
+}
+
+.product-item .content-wrapper .description {
+  flex: 1;
+}
+
+.product-item .content-wrapper .actions {
+  display: flex;
+  gap: 6px;
+}
+
+.button {
+  flex: 1;
+  padding: 10px 15px;
+  border: none;
+  background: none;
+  font-size: 1rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 100ms linear;
+}
+
+.button.green-solid {
+  border: solid 2px #95ab63;
+  color: #fff;
+  background: #95ab63;
+}
+
+.button.green-solid:hover {
+  background: #bdd684;
+  border: solid 2px #bdd684;
+}
+
+.image {
+  object-fit: cover;
+  width: 100%;
+}
+
+.filters {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+}
+
+.filters #wrap-item-category {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.no-product {
+  font-size: 25px;
+  text-align: center;
+}
+
+.filter-name {
+  margin-bottom: 15px;
+  padding: 10px 30px;
+  border: 1px solid gray;
+  background-color: #e2f7b06d;
+  max-width: fit-content;
+}
