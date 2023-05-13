@@ -8,7 +8,7 @@ function* getPartsOfWord (string) {
         
         newString += string[++i];
         yield newString + symbol;
-    } 
+    }; 
 
     return newString;
 };
