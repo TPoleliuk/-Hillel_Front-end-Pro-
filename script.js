@@ -21,11 +21,10 @@ function* getPartsOfWord (string) {
 
     for (let i = 0; i < string.length; i++) {
         newString += string[i]
-
         symbol = yield newString + symbol;
 
         if (symbol === undefined) {
-            symbol = ''
+            symbol = '';
         };
     }; 
 
