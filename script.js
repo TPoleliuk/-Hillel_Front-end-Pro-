@@ -7,18 +7,18 @@ function SuperMath() {
             : verification;
         
         if(verification) {
-            this.operation(obj.X, obj.Y, obj.znak)
+            this.operation(obj.X, obj.Y, obj.znak);
         } else {
             this.input();
             this.check(obj, true);
-        }
-    }
+        };
+    };
 
     this.input = function () {
         obj.X = +prompt('Введите число X:');
         obj.Y = +prompt('Введите число Y:');
         obj.znak = prompt('Введіть математичну дію (+, -, /, * або %)');
-     }
+     };
 };
 
 SuperMath.prototype.operation = function(a, b, znak) {
@@ -33,9 +33,9 @@ SuperMath.prototype.operation = function(a, b, znak) {
             if (b == 0) {
                 alert('На 0 ділити не можна.');
                 b =  +prompt('Введіть нове значення Y:');
-                alert(a / b)
+                alert(a / b);
             } else {
-                alert(a / b)
+                alert(a / b);
             };
             break;
         case '*':
@@ -45,9 +45,9 @@ SuperMath.prototype.operation = function(a, b, znak) {
             if (b == 0) {
                 alert('На 0 ділити не можна, а отже і знайти залишок з ділення.');
                 b =  +prompt('Введіть нове значення Y:');
-                alert(a % b)
+                alert(a % b);
             } else {a
-                alert(a % b)
+                alert(a % b);
             };
             break;
         };
