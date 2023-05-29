@@ -9,16 +9,16 @@ function SuperMath() {
         if(verification) {
             this.operation(obj.X, obj.Y, obj.znak);
         } else {
-            this.input();
-            this.check(obj, true);
+            this.check(this.input(obj), true);
         };
     };
 
-    this.input = function () {
+    this.input = function (obj) {
         obj.X = +prompt('Введіть число X:');
         obj.Y = +prompt('Введіть число Y:');
         obj.znak = prompt('Введіть математичну дію (+, -, /, * або %)');
-     };
+        return obj;
+    };
 };
 
 SuperMath.prototype.operation = function(a, b, znak) {
