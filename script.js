@@ -15,8 +15,8 @@ function SuperMath() {
     };
 
     this.input = function () {
-        obj.X = +prompt('Введите число X:');
-        obj.Y = +prompt('Введите число Y:');
+        obj.X = +prompt('Введіть число X:');
+        obj.Y = +prompt('Введіть число Y:');
         obj.znak = prompt('Введіть математичну дію (+, -, /, * або %)');
      };
 };
