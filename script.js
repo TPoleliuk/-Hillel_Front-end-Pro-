@@ -45,6 +45,7 @@ class HTMLElementInput extends HTMLElement {
     constructor(typeInput, ...arg) {
       super(...arg);
       
+      //захищене поле
       this.#type = typeInput;
       
       // конструюємо перелік полів інпута з дефолтними значеннями атрибутів, що притаманні даному типу інпуту
@@ -53,17 +54,17 @@ class HTMLElementInput extends HTMLElement {
       })
     }
 
+    //доступ до зчитування захищеного поля
     get type() {
         return this.#type;
     }
 
-    autocomplete() {
+    valueAutocomplete() {
       console.log("autocompleting from HTMLElementInput.");
       this.value = 'some default value';
     }
 }
 
-const input = new HTMLElementInput('text','input', 'form-input', '33345')
+const input = new HTMLElementInput('text','input', 'form-input', '33345');
 
-console.log(input)
-  
+console.log(input);
