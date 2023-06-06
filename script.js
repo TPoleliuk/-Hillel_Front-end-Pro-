@@ -45,10 +45,10 @@ class Hamburger {
     }
 
     addTopping(topping) {
-        // якщо додається перший допінг
+        // якщо додається перший топпінг
         if (!this['toppingFeatures']) {
             this['toppingFeatures'] = [topping];
-        // якщо додається 2-й і більше допінг
+        // якщо додається 2-й і більше топпінг
         } else {
             this['toppingFeatures'].push(topping);
         };
@@ -58,10 +58,10 @@ class Hamburger {
         const indexOfTopping = this.toppingFeatures.indexOf(topping);
 
         if (this.toppingFeatures && indexOfTopping >= 0) {
-            // якщо допінга 2 і більше
+            // якщо топпінгу 2 і більше
             if (this.toppingFeatures.length > 1) {
                 this.toppingFeatures.splice(indexOfTopping, 1); 
-            // якщо видаляється останній допінг
+            // якщо видаляється останній топпінг
             } else {
                 delete this.toppingFeatures;
             };
@@ -69,7 +69,7 @@ class Hamburger {
     }
 
     calculateCalories() {
-        // сума калорій всього допінгу (якщо допінгу немає - 0)
+        // сума калорій всього допінгу (якщо топпінгу немає - 0)
         const toppingCalories = this.toppingFeatures
             ? this.toppingFeatures.reduce((total, topping) => {
                 return total + topping.calories;
@@ -85,7 +85,7 @@ class Hamburger {
     }
 
     calculatePrice() {
-        // ціна всього допінгу (якщо допінгу немає - 0)
+        // ціна всього допінгу (якщо топпінгу немає - 0)
         const toppingPrice = this.toppingFeatures
             ? this.toppingFeatures.reduce((total, topping) => {
                 return total + topping.price;
