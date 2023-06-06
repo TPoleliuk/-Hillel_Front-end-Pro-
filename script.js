@@ -60,26 +60,26 @@ class Hamburger {
         if (this.toppingFeatures && indexOfTopping >= 0) {
             // якщо допінга 2 і більше
             if (this.toppingFeatures.length > 1) {
-              this.toppingFeatures.splice(indexOfTopping, 1); 
+                this.toppingFeatures.splice(indexOfTopping, 1); 
             // якщо видаляється останній допінг
             } else {
                 delete this.toppingFeatures;
             };
-        }
+        };
     }
 
     calculateCalories() {
         // сума калорій всього допінгу (якщо допінгу немає - 0)
         const toppingCalories = this.toppingFeatures
-        ? this.toppingFeatures.reduce((total, topping) => {
-            return total + topping.calories;
-        }, 0)
-        : 0;
+            ? this.toppingFeatures.reduce((total, topping) => {
+                return total + topping.calories;
+            }, 0)
+            : 0;
         
         // калорії додаткової начинки (якщо додаткової начинки немає - 0)
         const stuffingCalories = this.stuffingFeatures
-        ? this.stuffingFeatures.calories
-        : 0;
+            ? this.stuffingFeatures.calories
+            : 0;
 
         return this.sizeFeatures.calories + toppingCalories + stuffingCalories;
     }
@@ -87,20 +87,18 @@ class Hamburger {
     calculatePrice() {
         // ціна всього допінгу (якщо допінгу немає - 0)
         const toppingPrice = this.toppingFeatures
-        ? this.toppingFeatures.reduce((total, topping) => {
-            return total + topping.price;
-        }, 0)
-        : 0;
+            ? this.toppingFeatures.reduce((total, topping) => {
+                return total + topping.price;
+            }, 0)
+            : 0;
         
         // ціна додаткової начинки (якщо додаткової начинки немає - 0)
         const stuffingPrice = this.stuffingFeatures
-        ? this.stuffingFeatures.price
-        : 0;
+            ? this.stuffingFeatures.price
+            : 0;
 
         return this.sizeFeatures.price + toppingPrice + stuffingPrice;
     }
-
-
 }
 
 const hamburger = new Hamburger(Hamburger.SIZE_SMALL, Hamburger.STUFFING_CHEESE);
@@ -114,4 +112,4 @@ hamburger.addTopping(Hamburger.TOPPING_SAUCE);
 
 console.log(`Price with sauce: ${hamburger.calculatePrice()} tugrik`);
 
-console.log(hamburger)
+console.log(hamburger);
