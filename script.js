@@ -30,7 +30,9 @@ class Car {
 
     outputInfoCarAndOwner() {
         console.log(this);
-        this.owner.outputInfoPerson()
+        if (this.owner) {
+            this.owner.outputInfoPerson();
+        }
     }
 }
 
