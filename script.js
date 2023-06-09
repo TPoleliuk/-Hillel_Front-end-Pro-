@@ -69,7 +69,7 @@ class Hamburger {
     }
 
     calculateCalories() {
-        // сума калорій всього допінгу (якщо топпінгу немає - 0)
+        // сума калорій всього топпінгу (якщо топпінгу немає - 0)
         const toppingCalories = this.toppingFeatures
             ? this.toppingFeatures.reduce((total, topping) => {
                 return total + topping.calories;
@@ -85,7 +85,7 @@ class Hamburger {
     }
 
     calculatePrice() {
-        // ціна всього допінгу (якщо топпінгу немає - 0)
+        // ціна всього топпінгу (якщо топпінгу немає - 0)
         const toppingPrice = this.toppingFeatures
             ? this.toppingFeatures.reduce((total, topping) => {
                 return total + topping.price;
