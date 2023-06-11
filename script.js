@@ -62,9 +62,9 @@ class Hamburger {
     }
 
     deleteTopping(topping) {
-        const indexOfTopping = this.toppingFeatures.indexOf(topping);
+        const indexOfTopping = this.toppingFeatures ? this.toppingFeatures.indexOf(topping) : -1;
 
-        if (this.toppingFeatures && indexOfTopping >= 0) {
+        if (indexOfTopping >= 0) {
             // якщо топпінгу 2 і більше
             if (this.toppingFeatures.length > 1) {
                 this.toppingFeatures.splice(indexOfTopping, 1); 
@@ -109,6 +109,8 @@ class Hamburger {
 }
 
 const hamburger = new Hamburger(Hamburger.SIZE_SMALL, Hamburger.STUFFING_CHEESE);
+
+hamburger.deleteTopping(Hamburger.TOPPING_SAUCE);
 
 hamburger.addTopping(Hamburger.TOPPING_MAYO);
 
