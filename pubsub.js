@@ -21,14 +21,13 @@ class PubSub {
       this.subscribers[event].splice(indexOfUnsubscriber, 1);
     };
 
-    // Variant 2
-
-    // const subscribers = this.subscribers[event];
-    // if (subscribers) {
-    //   this.subscribers[event] = subscribers.filter(subscriber => {
-    //     return subscriber !== listener;
-    //   });
-    // };
+    /* Variant 2
+    const subscribers = this.subscribers[event];
+    if (subscribers) {
+      this.subscribers[event] = subscribers.filter(subscriber => {
+        return subscriber !== listener;
+      });
+    };*/
   }
   
   publish(event, ...args) {
