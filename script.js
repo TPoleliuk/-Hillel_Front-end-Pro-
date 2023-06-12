@@ -3,7 +3,7 @@ window.onload = function() {
     const numberInput = document.querySelector('.input-number');
     const rangeDiagram = document.querySelector('.range-diagram');
     const commissionDiagram = document.querySelector('.commission-diagram');
-    const resultTags = [...document.querySelector('.results').children];
+    const resultTags = [...document.querySelectorAll('.results span')];
     const commissionValue = {
         '2%': {from: 0, to: 19},
         '4%': {from: 20, to: 49},
@@ -50,9 +50,16 @@ window.onload = function() {
     };
 
     function showResult(tags, ...arg) {
-        tags[0].innerHTML = `Range value: ${arg[0]}`;
-        tags[1].innerHTML = `Commission value: ${arg[1]}`;
-        tags[2].innerHTML = `Total: ${parseFloat(arg[0]) + parseFloat(arg[1])}px`;
+        const totalResult = arg.reduce((total, part) => {
+            return total + parseFloat(part);
+        }, 0);
+
+        arg.push(`${totalResult}px`);
+        let indexOfArg = 0;
+
+        tags.forEach(tag => {
+            tag.innerHTML = `${arg[indexOfArg++]}`;
+        });
     };
 };
 
