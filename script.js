@@ -3,13 +3,13 @@ window.onload = function() {
     const numberInput = document.querySelector('.input-number');
     const rangeDiagram = document.querySelector('.range-diagram');
     const commissionDiagram = document.querySelector('.commission-diagram');
-    const resultTags = [...document.querySelector('.results').children]
+    const resultTags = [...document.querySelector('.results').children];
     const commissionValue = {
         '2%': {from: 0, to: 19},
         '4%': {from: 20, to: 49},
         '6%': {from: 50, to: 74},
         '8%': {from: 75, to: 100},
-    }
+    };
 
     slider.addEventListener("input", onRangeInputHandler);
     numberInput.addEventListener("input", onNumberInputHandler);
