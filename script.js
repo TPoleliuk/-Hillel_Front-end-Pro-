@@ -47,12 +47,12 @@ window.onload = function() {
 
     function toCoef(persantage) {
         return persantage / 100;
-    }
+    };
 
     function showResult(tags, ...arg) {
         tags[0].innerHTML = `Range value: ${arg[0]}`;
         tags[1].innerHTML = `Commission value: ${arg[1]}`;
         tags[2].innerHTML = `Total: ${parseFloat(arg[0]) + parseFloat(arg[1])}px`;
-    }
+    };
 };
 
