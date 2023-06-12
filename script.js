@@ -14,11 +14,10 @@ window.onload = function() {
     slider.addEventListener("input", onRangeInputHandler);
     numberInput.addEventListener("input", onNumberInputHandler);
 
+
     function onRangeInputHandler() {
         numberInput.value = this.value;
-        rangeDiagram.style.height = `${this.value}px`;
-        commissionDiagram.style.height = `${calculateCommission(commissionValue, this.value)}px`
-        showResult(resultTags, rangeDiagram.style.height, commissionDiagram.style.height);
+        modifyDiagram(this.value);
     };
 
     function onNumberInputHandler() {
@@ -29,6 +28,10 @@ window.onload = function() {
         };
 
         slider.value = value;
+        modifyDiagram(value);
+    };
+
+    function modifyDiagram(value) {
         rangeDiagram.style.height = `${value}px`;
         commissionDiagram.style.height = `${calculateCommission(commissionValue, value)}px`;
         showResult(resultTags, rangeDiagram.style.height, commissionDiagram.style.height);
