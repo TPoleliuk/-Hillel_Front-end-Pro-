@@ -49,7 +49,7 @@ window.onload = function() {
     function showResult(tags, ...arg) {
         tags[0].innerHTML = `Range value: ${arg[0]}`;
         tags[1].innerHTML = `Commission value: ${arg[1]}`;
-        tags[2].innerHTML = `Total: ${parseInt(arg[0]) + parseInt(arg[1])}px`;
+        tags[2].innerHTML = `Total: ${parseFloat(arg[0]) + parseFloat(arg[1])}px`;
     }
 };
 
