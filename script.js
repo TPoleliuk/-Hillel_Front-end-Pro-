@@ -1,21 +1,34 @@
 window.onload = function() {
-    const table = document.querySelector('.table');
+    const body = document.querySelector('.body');
 
     setTimeout(() => {
         const fragment = document.createDocumentFragment();
+
+        const table = appendNewElement(fragment, 'table', 'table')
         let count = 1;
 
         for(let i = 1; i <= 10; i++) {
-            const newRow = table.insertRow(-1);
+            const newRow = appendNewElement(table, 'tr')
             for(let j = 1; j <= 10; j++) {
-                const newCell = document.createElement('td');
-                newCell.innerHTML = count++;
-                newRow.append(newCell);
+
+                appendNewElement(newRow, 'td', null, count++)
             };
         };
 
-        table.append(fragment);
+        body.prepend(fragment);
 
     }, 2000);
 };
 
+function appendNewElement (parentEl, childEl, classListEl, innerHtml) {
+    const newChildEl = document.createElement(childEl);
+    if(classListEl) {
+        newChildEl.classList.add(classListEl);
+    };
+    if(innerHtml) {
+        newChildEl.innerHTML = innerHtml;
+    };
+    parentEl.append(newChildEl);
+
+    return newChildEl;
+};
