@@ -4,14 +4,14 @@ window.onload = function() {
     setTimeout(() => {
         const fragment = document.createDocumentFragment();
 
-        const table = appendNewElement(fragment, 'table', 'table')
+        const table = appendNewElement(fragment, 'table', 'table');
         let count = 1;
 
         for(let i = 1; i <= 10; i++) {
-            const newRow = appendNewElement(table, 'tr')
-            for(let j = 1; j <= 10; j++) {
+            const newRow = appendNewElement(table, 'tr');
 
-                appendNewElement(newRow, 'td', null, count++)
+            for(let j = 1; j <= 10; j++) {
+                appendNewElement(newRow, 'td', null, count++);
             };
         };
 
