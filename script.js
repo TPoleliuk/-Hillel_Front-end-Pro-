@@ -8,17 +8,16 @@ window.onload = function() {
     }, 2000);
 };
 
-
 //-------------------------------------------------------------------
 
-//коллекція функцій при роботі з елементами тегу
-const settingProperties = {
+//коллекція функцій при роботі з властивостями тегу
+const settingsTag = {
     add_classList(classList) {
         this.classList.add(classList);
     },
 
     add_innerHTML(innerHTML) {
-        this.innerHTML = innerHTML;
+        this.innerHTML += innerHTML;
     },
 
     add_attributes(attributes) {
@@ -41,17 +40,7 @@ function createElement(nameTag) {
         const newElement = document.createElement(nameTag);
 
         if (tagInfo) {
-            //знаходимо список ключів, value яких --> true
-            const settingsList = Object.keys(tagInfo).filter(key => tagInfo[key]);
-
-            if (settingsList.length) {
-                settingsList.forEach(setting => {
-                    //для кожного ключа викликаємо за наявності відповідну функцію з колекції
-                    if (settingProperties[`add_${setting}`]) {
-                        settingProperties[`add_${setting}`].call(newElement, tagInfo[setting]);
-                    }
-                });
-            };
+            configureTag(newElement, 'add', tagInfo);
         };
 
         return newElement;
@@ -64,12 +53,28 @@ const newCell = createElement('td');
 
 //-------------------------------------------------------------------
 
+//ініціює пошук і виклик необхідних функцій з колекції
+function configureTag(element, settingsType, elementInfo) {
+    const propertiesList = Object.keys(elementInfo).filter(key => {
+        return elementInfo[key] && settingsTag[`${settingsType}_${key}`];
+    });
+    
+    if (propertiesList.length) {
+        propertiesList.forEach(property => {
+            settingsTag[`${settingsType}_${property}`].call(element, elementInfo[property]);
+        });
+    };
+}
+
+//-------------------------------------------------------------------
+
 function createTable(numberRow, numberColumn) {
     const table = newTable();
     let count = 1;
 
     for(let i = 1; i <= numberRow; i++) {
-        table.append(createRow(numberColumn, count));
+        const row = createRow(numberColumn, count)
+        table.append(row);
         count += numberColumn;
     };
 
