@@ -3,7 +3,7 @@ window.onload = function() {
 
     setTimeout(() => {
         const fragment = document.createDocumentFragment();
-        fragment.prepend(createTable(10, 10))
+        fragment.prepend(createTable(10, 10));
         body.prepend(fragment);
     }, 2000);
 };
@@ -64,7 +64,7 @@ function configureTag(element, settingsType, elementInfo) {
             settingsTag[`${settingsType}_${property}`].call(element, elementInfo[property]);
         });
     };
-}
+};
 
 //-------------------------------------------------------------------
 
@@ -73,7 +73,7 @@ function createTable(numberRow, numberColumn) {
     let count = 1;
 
     for(let i = 1; i <= numberRow; i++) {
-        const row = createRow(numberColumn, count)
+        const row = createRow(numberColumn, count);
         table.append(row);
         count += numberColumn;
     };
@@ -85,7 +85,7 @@ function createRow(numberCell, cellInnerHTML) {
     const row = newRow();
 
     for (let i = 1; i <= numberCell; i++) {
-        const cell = newCell({innerHTML: cellInnerHTML++})
+        const cell = newCell({innerHTML: cellInnerHTML++});
         row.append(cell);
     };
 
