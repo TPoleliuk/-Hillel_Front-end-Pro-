@@ -1,0 +1,82 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-clip: padding-box;
+}
+
+button,
+textarea {
+  outline: none;
+  border: 1px solid rgb(197, 194, 194);
+  font-size: inherit;
+  font-family: inherit;
+  border-radius: 5px;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  padding: 20px 0;
+  font-size: 16px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 80%;
+  table-layout: fixed;
+}
+
+caption {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+td {
+  border: 1px solid grey;
+  text-align: center;
+  height: 75px;
+}
+
+.edit-wrap {
+  padding: 5px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5px;
+  background: linear-gradient(to bottom right, #99ccff 0%, #ffffff 100%);
+}
+
+textarea {
+  max-width: -webkit-fill-available;
+  text-align: center;
+  min-height: 50%;
+  min-width: 50%;
+  padding: 7px;
+}
+
+textarea:focus {
+  border: 1px solid rgb(94, 133, 240);
+}
+
+.btn-wrap {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  width: 100%;
+}
+
+button {
+  padding: 3px;
+  min-width: 35%;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: rgb(186, 205, 255);
+  border: 1px solid rgb(94, 133, 240);
+}

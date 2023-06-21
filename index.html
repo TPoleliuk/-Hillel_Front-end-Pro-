@@ -5,13 +5,134 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homeworks for Hillel</title>
+    <title>Homework 49</title>
+    <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
-
-    <script src="script.js"></script>
+    <table>
+        <caption>Варіант 1 (flexible): всі комірки активні, незалежно від того, чи завершена робота з поточною.
+        </caption>
+        <tbody data-variant-strategy="flexible">
+            <tr>
+                <td>Text 1</td>
+                <td>Text 2</td>
+                <td>Text 3</td>
+                <td>Text 4</td>
+                <td>Text 5</td>
+            </tr>
+            <tr>
+                <td>Text 6</td>
+                <td>Text 7</td>
+                <td>Text 8</td>
+                <td>Text 9</td>
+                <td>Text 10</td>
+            </tr>
+            <tr>
+                <td>Text 11</td>
+                <td>Text 12</td>
+                <td>Text 13</td>
+                <td>Text 14</td>
+                <td>Text 15</td>
+            </tr>
+            <tr>
+                <td>Text 16</td>
+                <td>Text 17</td>
+                <td>Text 18</td>
+                <td>Text 19</td>
+                <td>Text 20</td>
+            </tr>
+            <tr>
+                <td>Text 21</td>
+                <td>Text 22</td>
+                <td>Text 23</td>
+                <td>Text 24</td>
+                <td>Text 25</td>
+            </tr>
+        </tbody>
+    </table>
+    <table>
+        <caption>Варіант 2 (mixed): при переході на іншу комірку, вікно коригування в поточній закривається без
+            збереження змін.</caption>
+        <tbody data-variant-strategy="mixed">
+            <tr>
+                <td>Text 1</td>
+                <td>Text 2</td>
+                <td>Text 3</td>
+                <td>Text 4</td>
+                <td>Text 5</td>
+            </tr>
+            <tr>
+                <td>Text 6</td>
+                <td>Text 7</td>
+                <td>Text 8</td>
+                <td>Text 9</td>
+                <td>Text 10</td>
+            </tr>
+            <tr>
+                <td>Text 11</td>
+                <td>Text 12</td>
+                <td>Text 13</td>
+                <td>Text 14</td>
+                <td>Text 15</td>
+            </tr>
+            <tr>
+                <td>Text 16</td>
+                <td>Text 17</td>
+                <td>Text 18</td>
+                <td>Text 19</td>
+                <td>Text 20</td>
+            </tr>
+            <tr>
+                <td>Text 21</td>
+                <td>Text 22</td>
+                <td>Text 23</td>
+                <td>Text 24</td>
+                <td>Text 25</td>
+            </tr>
+        </tbody>
+    </table>
+    <table>
+        <caption>Варіант 3 (mixed): якщо незавершена робота з поточною коміркою, решта - є неактивними.</caption>
+        <tbody data-variant-strategy="strong">
+            <tr>
+                <td>Text 1</td>
+                <td>Text 2</td>
+                <td>Text 3</td>
+                <td>Text 4</td>
+                <td>Text 5</td>
+            </tr>
+            <tr>
+                <td>Text 6</td>
+                <td>Text 7</td>
+                <td>Text 8</td>
+                <td>Text 9</td>
+                <td>Text 10</td>
+            </tr>
+            <tr>
+                <td>Text 11</td>
+                <td>Text 12</td>
+                <td>Text 13</td>
+                <td>Text 14</td>
+                <td>Text 15</td>
+            </tr>
+            <tr>
+                <td>Text 16</td>
+                <td>Text 17</td>
+                <td>Text 18</td>
+                <td>Text 19</td>
+                <td>Text 20</td>
+            </tr>
+            <tr>
+                <td>Text 21</td>
+                <td>Text 22</td>
+                <td>Text 23</td>
+                <td>Text 24</td>
+                <td>Text 25</td>
+            </tr>
+        </tbody>
+    </table>
+    <script src="script.js" type="module"></script>
 </body>
-
 
 </html>
