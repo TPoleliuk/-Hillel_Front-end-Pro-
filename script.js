@@ -70,12 +70,9 @@ function configureTag(element, settingsType, elementInfo) {
 
 function createTable(numberRow, numberColumn) {
     const table = newTable();
-    let count = 1;
 
     for(let i = 1; i <= numberRow; i++) {
-        const row = createRow(numberColumn, count);
-        table.append(row);
-        count += numberColumn;
+        table.append(createRow(numberColumn));
     };
 
     return table;
@@ -85,9 +82,17 @@ function createRow(numberCell, cellInnerHTML) {
     const row = newRow();
 
     for (let i = 1; i <= numberCell; i++) {
-        const cell = newCell({innerHTML: cellInnerHTML++});
-        row.append(cell);
+        row.append(cell());
     };
 
     return row;
 };
+
+function createCell() {
+    let count = 1;
+    return function() {
+        return newCell({innerHTML: count++})
+    }
+}
+
+const cell = createCell();
