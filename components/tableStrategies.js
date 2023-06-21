@@ -22,7 +22,7 @@ export const strategies = {
             case 'TD':
                 if(table.querySelector('.edit-wrap')) {
                     buttonActions.cancel(table.querySelector('.edit-wrap'));
-                }
+                };
                 setEditWrap(target);
                 break;
             case 'BUTTON':
