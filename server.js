@@ -9,7 +9,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/products', (req, res) => {
-    res.send(products);
+    res.json(products);
 });
 
 app.get("/:universalURL", (req, res) => {
