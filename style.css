@@ -1,0 +1,72 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-clip: padding-box;
+}
+
+button,
+input {
+  outline: none;
+  border: 1px solid rgb(197, 194, 194);
+  font-size: inherit;
+  font-family: inherit;
+  border-radius: 5px;
+  padding: 5px;
+  text-align: center;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  padding: 200px 0;
+}
+
+button {
+  min-width: 70px;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: rgb(192, 238, 238);
+}
+
+.wrap-block,
+.wrap-button {
+  display: flex;
+  gap: 10px;
+}
+
+.modal-window {
+  position: fixed;
+  z-index: 1;
+  inset: 0;
+  background-color: rgb(50, 50, 98, 0.7);
+  display: none;
+  justify-content: center;
+  padding: 150px 0;
+  align-items: baseline;
+  border-radius: 5px;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-radius: 5px;
+}
+
+.checkboxLists {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.checkbox-item {
+  display: flex;
+  gap: 10px;
+}
