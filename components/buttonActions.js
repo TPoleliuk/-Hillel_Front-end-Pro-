@@ -43,14 +43,18 @@ function incrementInputValue(input) {
 
 function openModalWindow() {
     const modalWindow = document.querySelector('.modal-window');
+
     modalWindow.style.display = 'flex';
 };
 
 function closeModalWindow() {
     const modalWindow = document.querySelector('.modal-window');
     const checkboxLists = document.querySelector('.checkboxLists');
+    const inputForNewValue = document.querySelector('.modal-content input[type="number"]');
+
     modalWindow.style.display = 'none';
     checkboxLists.innerHTML = '';
+    inputForNewValue.value = '';
 };
 
 function setInputValue() {
