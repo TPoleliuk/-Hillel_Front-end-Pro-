@@ -1,63 +1,14 @@
 const express = require("express");
-const fs = require("fs");
 const app = express();
 const port = 5000;
 
-// Створити запит, який поверне всі товари відповідний критерію:
+const readFile = require('./utils/readFile.js');
+const { getProductById, getFilteredData} = require('./utils/filters.js')
 
-// есть на складе\нету\все (query)
-// підходить ціновому діапазону від - до (query)
-// має бути можливість комбінувати пункт 1 - 2
-// отримати всі товари в назвах яких присуджує параметр productName(query) (окремий запит)
-// отримати товар за конкретним id - отримаємо лише 1 товар (окремий запит) (params)
-
-const readFile = (cb) => {
-    fs.readFile('./model/data.json', "utf-8", (error, data) => {
-        const objData = JSON.parse(data);
-        cb(objData);
-    });
-};
-
-const filters = {
-    filter_stock: (criteriaValue, item) => criteriaValue == item.productStock.toString(),
-    minPrice: (criteriaValue, item) => parseInt(item.productPrice) >= parseInt(criteriaValue),
-    maxPrice: (criteriaValue, item) => parseInt(item.productPrice) <= parseInt(criteriaValue),
-    productName: (criteriaValue, item) => item.productName.toString().includes(criteriaValue),
-}
-
-function matcher({ key, criteriaValue, item }) {
-    const filter = filters[`filter_${key}`];
-
-    if (typeof filter !== 'function') {
-        return true;
-    };
-
-    if (criteriaValue === 'undefined') {
-        return false;
-    };
-
-    return filter(criteriaValue, item);
-}
-
-function getFilteredData(data, criteria) {
-    const criteriaKeys = Object.keys(criteria);
-
-    if(!criteriaKeys.length) {
-        return data;
-    };
-
-    const filteredData = data.filter((item) => {
-        return criteriaKeys.every((key) => {
-            return matcher({key, criteriaValue: criteria[key], item});
-        });
-    });
-
-    return filteredData;
-};
-
+const url = './model/data.json';
 
 app.get("/products/", (req, res) => {
-    readFile((products) => {
+    readFile(url, (products) => {
         const filters = req.query;
 
         const filteredProducts = getFilteredData(products, filters);
@@ -70,9 +21,6 @@ app.get("/products/", (req, res) => {
     });
 });
 
-function findProductById (id, products) {
-    return products.find((product) => product.productId == id)
-};
 
 app.get("/products/:id", (req, res) => {
     const productId = parseInt(req.params.id);
@@ -81,8 +29,8 @@ app.get("/products/:id", (req, res) => {
       return res.status(500).send('Product id not found');
     }
   
-    readFile((products) => {
-      const product = findProductById(productId, products);
+    readFile(url, (products) => {
+      const product = getProductById(productId, products);
   
       if (!product) {
         return res.status(500).send('Product by this ID not found');
