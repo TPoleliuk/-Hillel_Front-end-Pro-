@@ -15,9 +15,10 @@ const buttonActions = {
 
     set() {
         const inputs = [...document.querySelectorAll('.wrap-block input[type="number"]')];
-        const modalWindow = new Modal(createChoiceList(inputs));
+        const modalWindow = new Modal(createChoiceList(inputs), setInputValue);
 
-        modalWindow.open(setInputValue)
+        console.log(modalWindow)
+        modalWindow.open()
     },
 };
 

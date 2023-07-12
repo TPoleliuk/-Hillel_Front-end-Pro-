@@ -18,24 +18,31 @@ export class Modal {
         </div>
     `;
 
-    constructor(choiceList) {
+    #modalButtonActions;
+
+    constructor(choiceList, cb) {
         this.#modal = newDiv({classList: 'modal-window', innerHTML: this.#template});
         this.#modal.querySelector('div.choiceList').replaceWith(choiceList);
+        this.#modalButtonActions = {
+            ok: () => {
+                cb();
+                this.close();
+            },
+            cancel: () => {
+                this.close();
+            },
+        };
 
         document.body.prepend(this.#modal);
     };
 
-    open(cb) {
+    open() {
         this.#modal.style.display = 'flex';
         this.#modal.addEventListener("click", (event) => {
             const { modalAction } = event.target.dataset;
-            if(modalAction === 'ok') {
-                cb();
-                this.close();
-            };
-            if(modalAction === 'cancel') {
-                this.close();
-            };
+            if (modalAction && this.#modalButtonActions[modalAction]) {
+                this.#modalButtonActions[modalAction]();
+            }
         });
     };
 
