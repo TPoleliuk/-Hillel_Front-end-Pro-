@@ -1,13 +1,13 @@
-import TagSettings from "./tagSettingsCollection.js";
+import tagSettings from "./tagSettingsCollection.js";
 
 export default function configureTag(element, settingsType, properties) {
     const propertiesList = Object.keys(properties).filter(key => {
-        return properties[key] && TagSettings[`${settingsType}_${key}`];
+        return properties[key] && tagSettings[`${settingsType}_${key}`];
     });
     
     if (propertiesList.length) {
         propertiesList.forEach(property => {
-            TagSettings[`${settingsType}_${property}`].call(element, properties[property]);
+            tagSettings[`${settingsType}_${property}`].call(element, properties[property]);
         });
     };
 };

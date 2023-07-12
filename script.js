@@ -1,5 +1,5 @@
-import saveInputValueToLS from "./components/savingValueToLS.js";
-import buttonActions from "./components/buttonActions.js";
+import saveInputValueToLS from "./utils/savingValueToLS.js";
+import buttonActions from "./utils/buttonActions.js";
 
 window.onload = function() {
     const body = document.querySelector('body');
@@ -7,7 +7,7 @@ window.onload = function() {
 
     function getInputValueFromLS(input) {
         const { id } = input.dataset;
-        const value = localStorage.getItem(id) ? localStorage.getItem(id) : '';
+        const value = localStorage.getItem(id) || '';
 
         return value;
     };

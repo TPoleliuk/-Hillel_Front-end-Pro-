@@ -1,4 +1,4 @@
-const TagSettings = {
+const tagSettings = {
     add_classList(classList) {
         this.classList.add(classList);
     },
@@ -18,4 +18,4 @@ const TagSettings = {
     },
 };
 
-export default TagSettings;
+export default tagSettings;
