@@ -2,7 +2,6 @@ import { newDiv } from '../domHelper/creatingElement.js'
 
 function createWeatherInfo(parameters) {
     const {temp, pressure, humidity, city, description, icon, speed, deg} = parameters;
-console.log(parameters)
     const template = `
             <form class="choose-city">
                 <label class="enter-city">
