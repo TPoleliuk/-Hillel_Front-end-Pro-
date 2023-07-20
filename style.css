@@ -49,6 +49,7 @@ input {
   overflow: hidden;
   width: 100%;
   aspect-ratio: 1.6/1;
+  display: block;
 }
 
 .start-animation {
@@ -120,6 +121,7 @@ input {
   justify-content: center;
   text-transform: uppercase;
   color: brown;
+  width: 100%;
 }
 
 .navigation-icon {

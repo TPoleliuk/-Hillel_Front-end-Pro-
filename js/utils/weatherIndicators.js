@@ -3,7 +3,7 @@ const weatherIndicators = {
     pressure: {fullName: 'Pressure', units: 'hPa'},
     humidity: {fullName: 'Humidity', units: '%'},
     speed: {fullName: 'Wind Speed', units: 'm/s'},
-    deg: {fullName: 'Wind direction', units: '°'},
+    deg: {fullName: 'Wind Direction', units: '°'},
 };
 
 export default weatherIndicators;
