@@ -12,4 +12,6 @@ function createElement(nameTag) {
     };
 };
 
-export const newDiv = createElement('div');
+const newDiv = createElement('div');
+
+export default newDiv;

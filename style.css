@@ -35,7 +35,7 @@ input {
 }
 
 .container {
-  max-width: 600px;
+  max-width: 700px;
   padding: 0 16px;
   margin: 0 auto;
   height: 100%;
@@ -48,7 +48,7 @@ input {
   border-radius: 16px;
   overflow: hidden;
   width: 100%;
-  aspect-ratio: 1.5/1;
+  aspect-ratio: 1.6/1;
 }
 
 .start-animation {
@@ -108,7 +108,8 @@ input {
   flex-direction: column;
   align-items: center;
   gap: 15px;
-  width: 35%;
+  width: 40%;
+  font-size: 1.2rem;
 }
 
 .city-wrap {
@@ -117,6 +118,8 @@ input {
   max-height: 40px;
   gap: 10px;
   justify-content: center;
+  text-transform: uppercase;
+  color: brown;
 }
 
 .navigation-icon {
@@ -127,8 +130,8 @@ input {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 20px;
-  width: 65%;
+  gap: 20px 25px;
+  width: 55%;
 }
 
 .card {
@@ -136,4 +139,17 @@ input {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 5px;
+}
+
+.indicators-icons {
+  max-height: 40px;
+}
+
+.value {
+  font-size: 1.35em;
+}
+
+.fullName {
+  font-weight: 400;
 }

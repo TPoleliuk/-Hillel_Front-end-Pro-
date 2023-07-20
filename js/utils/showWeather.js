@@ -1,6 +1,6 @@
 import fetchData from './fetchData.js';
 import createWeatherInfo from './createWeatherInfo.js';
-import showWeatherChosenCity from '../script.js';
+import showWeatherChosenCity from '../../script.js';
 
 async function getWeatherData(url) {
     const weatherData = await fetchData(url);
@@ -18,7 +18,7 @@ function showWeatherInfo(parameters) {
     const app = document.querySelector('.app');
     const oldContent = app.firstElementChild;
     const actualWeatherInfo = createWeatherInfo(parameters);
-
+    
     app.replaceChild(actualWeatherInfo, oldContent);
 };
 
