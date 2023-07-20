@@ -7,7 +7,7 @@ function createSearchPart(params) {
         } else {
             return commonSearch + `${key}=${params[key]}&`;
         };
-    }, '?') 
+    }, '?');
 
     return searchPart;
 };

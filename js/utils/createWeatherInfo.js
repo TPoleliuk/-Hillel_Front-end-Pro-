@@ -10,7 +10,7 @@ function createFormChooseCity() {
             <div class="button-wrap">
                 <button type="button">Search</button>
             </div>
-        </form>`
+        </form>`;
 };
 
 function createMainInfo(city, icon, description) {
@@ -22,7 +22,7 @@ function createMainInfo(city, icon, description) {
             </div>  
             <img src="https://openweathermap.org/img/wn/${icon}@2x.png" alt="weather">
             <span class="description">${description}</span>
-        </div>`
+        </div>`;
 };
 
 function createAdditionalInfo(indicators) {
@@ -35,8 +35,8 @@ function createAdditionalInfo(indicators) {
                     <img src="./images/indicators-icons/${key}.svg" alt="${weatherIndicators[key]}-icon" class="indicators-icons">
                     <p class="value">${indicators[key]} ${indicator['units']}</p>
                     <p class="fullName">${indicator['fullName']}</p>
-                </div>`
-            }, ``)
+                </div>`;
+            }, ``);
 };
 
 function createWeatherInfo(parameters) {

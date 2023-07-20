@@ -27,7 +27,7 @@ function showWeatherCurrentPosition(pos) {
 function getCurrentPosition() {
     setTimeout(() => {
         navigator.geolocation.getCurrentPosition(showWeatherCurrentPosition, chooseCity);
-    }, 1800)
+    }, 1800);
 };
 
 window.onload = getCurrentPosition;
