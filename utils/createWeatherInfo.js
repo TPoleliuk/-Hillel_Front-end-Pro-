@@ -14,7 +14,7 @@ function createWeatherInfo(parameters) {
             <div class="weather-info">
                 <div class="main-info">
                     <div class="city-wrap">
-                        <img src="../images/navigation-icon.svg" alt="navigation" class="navigation-icon">
+                        <img src="./images/navigation-icon.svg" alt="navigation" class="navigation-icon">
                         <span>${city}</span>
                     </div>   
                     <img src="https://openweathermap.org/img/wn/${icon}@2x.png" alt="weather">
