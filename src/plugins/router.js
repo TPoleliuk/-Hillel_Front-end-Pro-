@@ -3,6 +3,8 @@ import Component from "@/plugins/component";
 export default class Router {
     routes = []
     originalPushState = null;
+    #container = null;
+    #subBeforeEach = [];
 
     constructor(routes) {
         console.log('---- start configuration Router Plugin ---');
@@ -11,12 +13,9 @@ export default class Router {
 
         this.originalPushState = history.pushState;
 
-        history.pushState = function (state, title, pathTo) {
+        history.pushState =  (state, title, pathTo) => {
             console.log('---- call pushState ---');
-
-            if (typeof history.onpushstate === 'function') {
-                history.onpushstate(state, title, pathTo);
-            };
+            this.go(pathTo);
         };
 
         history.onpushstate = (state, title, pathTo) => {
@@ -26,26 +25,45 @@ export default class Router {
     };
 
     onInit() {
-        console.log('----start Router plugin-----');
+       this.#container = document.querySelector('.router-view');
     };
 
     #updateView(pathTo) {
-        let ComponentSearched = this.#findComponent(pathTo);
+        let Component = (this.#findComponent(pathTo) || this.#findComponent('*'));
 
-        if (!(ComponentSearched instanceof Component)) {
-            ComponentSearched = this.#findComponent('*');
+        if (Component) {
+            this.#renderComponent(Component);
         };
-
-        this.#renderComponent(ComponentSearched);
     };
 
     #findComponent(pathTo) {
         return this.routes.find(route => route.path === pathTo)?.component;
     };
 
-
     // innerHTML VS createElement
+
     #renderComponent(Component) {
-        document.querySelector('#app').innerHTML = new Component();
+        this.#container.innerHTML = '';
+        this.#container.append(new Component().render());
+    };
+
+    go(pathTo) {
+        const next = (anotherPathTo = null) => {
+            if (typeof history.onpushstate === 'function') {
+                history.onpushstate(null, null, anotherPathTo || pathTo);
+            };
+        };
+
+        const pathFrom = location.pathname;
+        this.#publishBeforeEach(pathFrom, pathTo, next);
+    };
+
+    #publishBeforeEach(...args) {
+        this.#subBeforeEach.forEach((cb) => cb(...args));
+    };
+
+    beforeEach(cb) {
+        if (!cb) return;
+        this.#subBeforeEach.push(cb);
     };
 };

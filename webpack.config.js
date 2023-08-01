@@ -1,23 +1,23 @@
 const path = require('path');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const autoprefixer = require('autoprefixer');
+const autoprefixer = require('autoprefixer')
 
 module.exports = {
     mode: 'development',
     entry: {
-        index: './index.js',
+        index: './index.js'
     },
 
     output: {
         filename: '[name].[contenthash].js',
         path: path.resolve(__dirname, 'dist'),
-        clean: true,
+        clean: true
     },
 
     plugins: [
         new HtmlWebpackPlugin({
             title: 'SPA',
-            template: './public/index.html',
+            template: './public/index.html'
         })
     ],
 
@@ -33,13 +33,13 @@ module.exports = {
                         options: {
                             postcssOptions: { // post css plugins, can be exported to postcss.config.js
                                     plugins: [
-                                        autoprefixer
-                                ],
-                            },
-                        },
+                                    require('autoprefixer')
+                                ]
+                            }
+                        }
                     },
                     'sass-loader'
-                ],
+                ]
             },
             {
                 test: /\.(?:js|mjs|cjs)$/,
@@ -50,10 +50,13 @@ module.exports = {
                         presets: [
                             ['@babel/preset-env', { targets: "defaults" }]
                         ],
-                    },
-                },
+                        plugins: [
+                            ["@babel/plugin-proposal-decorators", { version: "2023-05" }],
+                        ]
+                    }
+                }
             }
-        ],
+        ]
     },
 
     devServer: {
@@ -64,13 +67,14 @@ module.exports = {
         hot: true,
         port: 9000,
         open: true,
-        historyApiFallback: true,
+        historyApiFallback: true
     },
 
 
     resolve: {
         alias: {
-            '@': path.resolve(__dirname, './src'),
-        },
+            '@': path.resolve(__dirname, './src')
+        }
     },
-};
+    devtool: "source-map"
+}

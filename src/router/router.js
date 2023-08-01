@@ -12,6 +12,9 @@ const routes = [
     {
         path: '/sign-in',
         component: SignIn,
+        beforeEach() {
+
+        }
     },
     {
         path: '/sign-up',
@@ -24,3 +27,18 @@ const routes = [
 ];
 
 export const router = new Router(routes);
+
+const isAuth = false;
+router.beforeEach(function (from, to, next) {
+    if (isAuth) {
+        next();
+        return;
+    };
+
+    if (to === '/sign-up') {
+        next();
+        return;
+    };
+
+    next('/sign-in');
+});
